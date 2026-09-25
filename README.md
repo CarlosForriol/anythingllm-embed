@@ -122,3 +122,25 @@ _work in progress_
 ### `<iframe>` Customization Options
 
 _work in progress_
+
+## Lexppia fork — bundle build & publish (issues #21/#22/#23)
+
+This repo is the Leppi-widget fork of `Mintplex-Labs/anythingllm-embed`
+(`lexppia` branch). The admin panel serves the built bundle from
+`frontend/public/embed/leppi-chat-widget.min.{js,css}` in the
+`leppi-widget` main repo — that copy is a **build artifact** and must always
+be regenerated from this source, never hand-edited.
+
+Rebuild pipeline (run from `embed/`):
+
+```bash
+yarn                 # install deps
+yarn verify:translations
+yarn build:publish   # vite build + minify -> copies both files to
+                     # ../frontend/public/embed/leppi-chat-widget.min.{js,css}
+```
+
+Or from the main repo root: `./scripts/build-embed-bundle.sh` (same thing,
+plus a reminder to commit the regenerated bundle). Fork-visible defaults
+(Lexppia palette, `language: "es"`, `Impulsado por Lexppia`) live in
+`src/hooks/useScriptAttributes.js` and `src/main.jsx`.

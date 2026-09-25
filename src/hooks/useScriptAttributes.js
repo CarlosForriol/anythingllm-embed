@@ -15,20 +15,20 @@ const DEFAULT_SETTINGS = {
   chatIcon: "plus",
   brandImageUrl: null, // will be forced into 100x50px container
   greeting: null, // empty chat window greeting.
-  buttonColor: "#262626", // must be hex color code
-  userBgColor: "#2C2F35", // user text bubble color
-  assistantBgColor: "#2563eb", // assistant text bubble color
+  buttonColor: "#2b45d6", // must be hex color code
+  userBgColor: "#2b45d6", // user text bubble color
+  assistantBgColor: "#f4f3ef", // assistant text bubble color
   noSponsor: null, // Shows sponsor in footer of chat
-  sponsorText: "Powered by AnythingLLM", // default sponsor text
-  sponsorLink: "https://anythingllm.com", // default sponsor link
+  sponsorText: "Impulsado por Lexppia", // default sponsor text
+  sponsorLink: "https://leppi.es", // default sponsor link
   position: "bottom-right", // position of chat button/window
-  assistantName: "AnythingLLM Chat Assistant", // default assistant name
+  assistantName: "Asistente Lexppia", // default assistant name
   assistantIcon: null, // default assistant icon
   windowHeight: null, // height of chat window in number:css-prefix
   windowWidth: null, // width of chat window in number:css-prefix
   textSize: null, // text size in px (number only)
   noHeader: null, // If set, hide the header above the chatbox
-  language: "en", // language of chat interface
+  language: "es", // language of chat interface
   sendMessageText: null, // override text for send message button
   resetChatText: null, // override text for reset chat button
 

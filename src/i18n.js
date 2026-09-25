@@ -4,13 +4,13 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import { defaultNS, resources } from "./locales/resources.js";
 
 export function initI18n(settings) {
-  const language = settings?.language || "en";
+  const language = settings?.language || "es";
 
   i18next
     .use(initReactI18next)
     .use(LanguageDetector)
     .init({
-      fallbackLng: "en",
+      fallbackLng: "es",
       lng: language,
       debug: import.meta.env.DEV,
       defaultNS,
