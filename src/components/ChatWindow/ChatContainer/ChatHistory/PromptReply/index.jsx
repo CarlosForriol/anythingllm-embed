@@ -84,8 +84,7 @@ const PromptReply = forwardRef(
       return (
         <div className="allm-py-[5px]">
           <div className="allm-text-[10px] allm-text-gray-400 allm-ml-[54px] allm-mr-6 allm-mb-2 allm-text-left allm-font-sans">
-            {embedderSettings.settings.assistantName ||
-              "Asistente Lexppia"}
+            {embedderSettings.settings.assistantName || "Asistente Lexppia"}
           </div>
           <div className="allm-flex allm-items-start allm-w-full allm-h-fit allm-justify-start">
             <img
@@ -114,8 +113,7 @@ const PromptReply = forwardRef(
       return (
         <div className="allm-py-[5px]">
           <div className="allm-text-[10px] allm-text-gray-400 allm-ml-[54px] allm-mr-6 allm-mb-2 allm-text-left allm-font-sans">
-            {embedderSettings.settings.assistantName ||
-              "Asistente Lexppia"}
+            {embedderSettings.settings.assistantName || "Asistente Lexppia"}
           </div>
           <div className="allm-flex allm-items-start allm-w-full allm-h-fit allm-justify-start">
             <img
@@ -140,8 +138,7 @@ const PromptReply = forwardRef(
     return (
       <div className="allm-py-[5px]">
         <div className="allm-text-[10px] allm-text-gray-400 allm-ml-[54px] allm-mr-6 allm-mb-2 allm-text-left allm-font-sans">
-          {embedderSettings.settings.assistantName ||
-            "Asistente Lexppia"}
+          {embedderSettings.settings.assistantName || "Asistente Lexppia"}
         </div>
         <div
           key={uuid}
