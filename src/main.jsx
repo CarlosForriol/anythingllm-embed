@@ -16,13 +16,14 @@ const scriptSettings = Object.assign(
 export const embedderSettings = {
   settings: scriptSettings,
   stylesSrc: parseStylesSrc(document?.currentScript?.src),
+  // Issue #26: bubble colors are Lexppia tokens (src/theme.css) consumed via
+  // Tailwind. Client `data-*` colors are mapped onto the same variables in
+  // App.jsx, so no hex lives in these style strings anymore.
   USER_STYLES: {
-    msgBg: scriptSettings?.userBgColor ?? "#2b45d6",
-    base: `allm-text-white allm-rounded-t-[18px] allm-rounded-bl-[18px] allm-rounded-br-[4px] allm-mx-[20px]`,
+    base: `allm-bg-lex-bubble-user allm-text-lex-bubble-user-ink allm-rounded-t-[18px] allm-rounded-bl-[18px] allm-rounded-br-[4px] allm-mx-[20px]`,
   },
   ASSISTANT_STYLES: {
-    msgBg: scriptSettings?.assistantBgColor ?? "#f4f3ef",
-    base: `allm-text-[#14151A] allm-rounded-t-[18px] allm-rounded-br-[18px] allm-rounded-bl-[4px] allm-mr-[37px] allm-ml-[9px]`,
+    base: `allm-bg-lex-bubble-assistant allm-text-lex-bubble-assistant-ink allm-rounded-t-[18px] allm-rounded-br-[18px] allm-rounded-bl-[4px] allm-mr-[37px] allm-ml-[9px]`,
   },
 };
 

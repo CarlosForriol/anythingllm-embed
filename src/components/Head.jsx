@@ -24,9 +24,9 @@ const customCss = `
     width: 10px;
     height: 10px;
     border-radius: 5px;
-    background-color: #000000;
-    color: #5fa4fa;
-    box-shadow: 9999px 0 0 0 #000000;
+    background-color: var(--lex-ink);
+    color: transparent;
+    box-shadow: 9999px 0 0 0 var(--lex-ink);
     animation: dot-falling 1.5s infinite linear;
     animation-delay: 0.1s;
   }
@@ -43,8 +43,8 @@ const customCss = `
     width: 10px;
     height: 10px;
     border-radius: 5px;
-    background-color: #000000;
-    color: #000000;
+    background-color: var(--lex-ink);
+    color: var(--lex-ink);
     animation: dot-falling-before 1.5s infinite linear;
     animation-delay: 0s;
   }
@@ -53,8 +53,8 @@ const customCss = `
     width: 10px;
     height: 10px;
     border-radius: 5px;
-    background-color: #000000;
-    color: #000000;
+    background-color: var(--lex-ink);
+    color: var(--lex-ink);
     animation: dot-falling-after 1.5s infinite linear;
     animation-delay: 0.2s;
   }
@@ -66,7 +66,7 @@ const customCss = `
     25%,
     50%,
     75% {
-      box-shadow: 9999px 0 0 0 #000000;
+      box-shadow: 9999px 0 0 0 var(--lex-ink);
     }
     100% {
       box-shadow: 9999px 15px 0 0 rgba(152, 128, 255, 0);
@@ -80,7 +80,7 @@ const customCss = `
     25%,
     50%,
     75% {
-      box-shadow: 9984px 0 0 0 #000000;
+      box-shadow: 9984px 0 0 0 var(--lex-ink);
     }
     100% {
       box-shadow: 9984px 15px 0 0 rgba(152, 128, 255, 0);
@@ -94,7 +94,7 @@ const customCss = `
     25%,
     50%,
     75% {
-      box-shadow: 10014px 0 0 0 #000000;
+      box-shadow: 10014px 0 0 0 var(--lex-ink);
     }
     100% {
       box-shadow: 10014px 15px 0 0 rgba(152, 128, 255, 0);

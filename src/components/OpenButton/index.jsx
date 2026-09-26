@@ -23,13 +23,12 @@ export default function OpenButton({ settings, isOpen, toggleOpen }) {
     : CHAT_ICONS.plus;
   return (
     <button
-      style={{ backgroundColor: settings.buttonColor }}
       id="anything-llm-embed-chat-button"
       onClick={toggleOpen}
-      className={`hover:allm-cursor-pointer allm-border-none allm-flex allm-items-center allm-justify-center allm-p-4 allm-rounded-full allm-text-white allm-text-2xl hover:allm-opacity-95`}
+      className={`allm-bg-lex-button hover:allm-cursor-pointer allm-border-none allm-flex allm-items-center allm-justify-center allm-p-4 allm-rounded-full allm-text-lex-button-ink allm-text-2xl hover:allm-opacity-95`}
       aria-label="Toggle Menu"
     >
-      <ChatIcon className="text-white" />
+      <ChatIcon className="allm-text-lex-button-ink" />
     </button>
   );
 }

@@ -15,7 +15,7 @@ const ThoughtBubble = ({ thought }) => {
     <div className="allm-mb-2">
       <div
         onClick={() => setIsExpanded(!isExpanded)}
-        className="allm-cursor-pointer allm-flex allm-items-center allm-gap-x-1.5 allm-text-gray-400 hover:allm-text-gray-500"
+        className="allm-cursor-pointer allm-flex allm-items-center allm-gap-x-1.5 allm-text-lex-ink-faint hover:allm-text-lex-ink-muted"
       >
         <CaretDown
           size={14}
@@ -25,8 +25,8 @@ const ThoughtBubble = ({ thought }) => {
         <span className="allm-text-xs allm-font-medium">View thoughts</span>
       </div>
       {isExpanded && (
-        <div className="allm-mt-2 allm-mb-3 allm-pl-0 allm-border-l-2 allm-border-gray-200">
-          <div className="allm-text-xs allm-text-gray-600 allm-font-mono allm-whitespace-pre-wrap">
+        <div className="allm-mt-2 allm-mb-3 allm-pl-0 allm-border-l-2 allm-border-lex-line">
+          <div className="allm-text-xs allm-text-lex-ink-muted allm-font-mono allm-whitespace-pre-wrap">
             {thought.trim()}
           </div>
         </div>
@@ -67,7 +67,7 @@ const HistoricalMessage = forwardRef(
     return (
       <div className="allm-py-[5px]">
         {role === "assistant" && (
-          <div className="allm-text-[10px] allm-text-gray-400 allm-ml-[54px] allm-mr-6 allm-mb-2 allm-text-left allm-font-sans">
+          <div className="allm-text-[10px] allm-text-lex-ink-faint allm-ml-[54px] allm-mr-6 allm-mb-2 allm-text-left allm-font-sans">
             {embedderSettings.settings.assistantName || "Asistente Lexppia"}
           </div>
         )}
@@ -87,16 +87,10 @@ const HistoricalMessage = forwardRef(
             />
           )}
           <div
-            style={{
-              wordBreak: "break-word",
-              backgroundColor:
-                role === "user"
-                  ? embedderSettings.USER_STYLES.msgBg
-                  : embedderSettings.ASSISTANT_STYLES.msgBg,
-            }}
+            style={{ wordBreak: "break-word" }}
             className={`allm-py-[11px] allm-px-4 allm-flex allm-flex-col allm-font-sans ${
               error
-                ? "allm-bg-red-200 allm-rounded-lg allm-mr-[37px] allm-ml-[9px]"
+                ? "allm-bg-lex-danger allm-rounded-lg allm-mr-[37px] allm-ml-[9px]"
                 : role === "user"
                   ? `${embedderSettings.USER_STYLES.base} allm-anything-llm-user-message`
                   : `${embedderSettings.ASSISTANT_STYLES.base} allm-anything-llm-assistant-message`
@@ -104,12 +98,12 @@ const HistoricalMessage = forwardRef(
           >
             <div className="allm-flex allm-flex-col">
               {error ? (
-                <div className="allm-p-2 allm-rounded-lg allm-bg-red-50 allm-text-red-500">
+                <div className="allm-p-2 allm-rounded-lg allm-bg-lex-danger-soft allm-text-lex-danger-ink">
                   <span className="allm-inline-block">
                     <Warning className="allm-h-4 allm-w-4 allm-mb-1 allm-inline-block" />{" "}
                     Could not respond to message.
                   </span>
-                  <p className="allm-text-xs allm-font-mono allm-mt-2 allm-border-l-2 allm-border-red-500 allm-pl-2 allm-bg-red-300 allm-p-2 allm-rounded-sm">
+                  <p className="allm-text-xs allm-font-mono allm-mt-2 allm-border-l-2 allm-border-lex-danger-ink allm-pl-2 allm-bg-lex-danger allm-p-2 allm-rounded-sm">
                     {errorMsg || "Server error"}
                   </p>
                 </div>
@@ -134,7 +128,7 @@ const HistoricalMessage = forwardRef(
 
         {sentAt && (
           <div
-            className={`allm-font-sans allm-text-[10px] allm-text-gray-400 allm-ml-[54px] allm-mr-6 allm-mt-2 ${role === "user" ? "allm-text-right" : "allm-text-left"}`}
+            className={`allm-font-sans allm-text-[10px] allm-text-lex-ink-faint allm-ml-[54px] allm-mr-6 allm-mt-2 ${role === "user" ? "allm-text-right" : "allm-text-left"}`}
           >
             {formatDate(sentAt)}
           </div>

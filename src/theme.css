@@ -1,0 +1,115 @@
+/**
+ * Lexppia design tokens (issue #26).
+ *
+ * Every color the widget paints comes from one of these variables — no
+ * component may hardcode a hex. The active palette is chosen by the
+ * `data-theme` attribute (light | dark), and each client can override any
+ * token at runtime through the widget_config colors the panel emits as
+ * `data-*` attributes on the script tag (see App.jsx).
+ */
+
+:root,
+[data-theme="light"] {
+  /* surfaces */
+  --lex-window: #ffffff;
+  --lex-surface-hover: #f3f4f6;
+  --lex-header-line: #e9e9e9;
+  --lex-line: #e5e7eb;
+  --lex-window-border: #d1d5db;
+
+  /* text */
+  --lex-ink: #14151a;
+  --lex-ink-muted: #7a7d7e;
+  --lex-ink-faint: #9ca3af;
+
+  /* brand + links */
+  --lex-accent: #0119d9;
+
+  /* bubbles */
+  --lex-bubble-user-bg: #2b45d6;
+  --lex-bubble-user-ink: #ffffff;
+  --lex-bubble-assistant-bg: #f4f3ef;
+  --lex-bubble-assistant-ink: #14151a;
+
+  /* open button */
+  --lex-button-bg: #2b45d6;
+  --lex-button-ink: #ffffff;
+
+  /* prompt input */
+  --lex-input-border: rgba(34, 38, 40, 0.2);
+  --lex-input-ink: #14151a;
+
+  /* errors */
+  --lex-danger-bg: #fecaca;
+  --lex-danger-soft-bg: #fef2f2;
+  --lex-danger-ink: #ef4444;
+
+  /* floating controls (scroll-to-bottom) */
+  --lex-overlay-bg: rgba(0, 0, 0, 0.2);
+  --lex-overlay-bg-hover: rgba(0, 0, 0, 0.5);
+  --lex-overlay-border: rgba(255, 255, 255, 0.1);
+  --lex-overlay-ink: rgba(255, 255, 255, 0.5);
+
+  /* copy-code feedback */
+  --lex-success: #22c55e;
+}
+
+[data-theme="dark"] {
+  /* surfaces */
+  --lex-window: #25272c;
+  --lex-surface-hover: #31353a;
+  --lex-header-line: #3d4147;
+  --lex-line: #3d4147;
+  --lex-window-border: #4e5153;
+
+  /* text */
+  --lex-ink: #efefef;
+  --lex-ink-muted: #c3c7cb;
+  --lex-ink-faint: #9ca3af;
+
+  /* brand + links */
+  --lex-accent: #a8d82a;
+
+  /* bubbles */
+  --lex-bubble-user-bg: #2b45d6;
+  --lex-bubble-user-ink: #ffffff;
+  --lex-bubble-assistant-bg: #2c2f35;
+  --lex-bubble-assistant-ink: #efefef;
+
+  /* open button */
+  --lex-button-bg: #2b45d6;
+  --lex-button-ink: #ffffff;
+
+  /* prompt input */
+  --lex-input-border: rgba(255, 255, 255, 0.2);
+  --lex-input-ink: #efefef;
+
+  /* errors */
+  --lex-danger-bg: #7f1d1d;
+  --lex-danger-soft-bg: #450a0a;
+  --lex-danger-ink: #f87171;
+
+  /* floating controls (scroll-to-bottom) */
+  --lex-overlay-bg: rgba(255, 255, 255, 0.1);
+  --lex-overlay-bg-hover: rgba(255, 255, 255, 0.25);
+  --lex-overlay-border: rgba(255, 255, 255, 0.15);
+  --lex-overlay-ink: rgba(255, 255, 255, 0.7);
+
+  /* copy-code feedback */
+  --lex-success: #4ade80;
+}
+
+/*
+ * Code blocks keep a fixed dark surface in both palettes (they pair with the
+ * vendored GitHub-Dark-Dimmed highlight.js theme), so these live outside the
+ * theme switch rather than being duplicated per theme.
+ */
+:root {
+  --lex-code-bg: #1e1e1e;
+  --lex-code-header-bg: #2d2d2d;
+  --lex-code-ink: #d4d4d4;
+  --lex-code-ink-muted: #858585;
+  --lex-code-btn-bg: rgba(255, 255, 255, 0.08);
+  --lex-code-btn-bg-hover: rgba(255, 255, 255, 0.13);
+  --lex-code-btn-ink-hover: #ffffff;
+}

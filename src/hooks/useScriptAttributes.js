@@ -15,9 +15,14 @@ const DEFAULT_SETTINGS = {
   chatIcon: "plus",
   brandImageUrl: null, // will be forced into 100x50px container
   greeting: null, // empty chat window greeting.
-  buttonColor: "#2b45d6", // must be hex color code
-  userBgColor: "#2b45d6", // user text bubble color
-  assistantBgColor: "#f4f3ef", // assistant text bubble color
+  theme: "light", // token palette: "light" | "dark" (issue #26)
+  buttonColor: null, // hex override of --lex-button-bg
+  userBgColor: null, // hex override of --lex-bubble-user-bg
+  assistantBgColor: null, // hex override of --lex-bubble-assistant-bg
+  backgroundColor: null, // hex override of --lex-window
+  textColor: null, // hex override of --lex-ink
+  accentColor: null, // hex override of --lex-accent
+  borderColor: null, // hex override of --lex-window-border
   noSponsor: null, // Shows sponsor in footer of chat
   sponsorText: "Impulsado por Lexppia", // default sponsor text
   sponsorLink: "https://leppi.es", // default sponsor link

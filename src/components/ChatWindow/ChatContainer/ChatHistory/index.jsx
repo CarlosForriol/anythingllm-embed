@@ -50,7 +50,7 @@ export default function ChatHistory({ settings = {}, history = [] }) {
     return (
       <div className="allm-h-full allm-overflow-y-auto allm-px-2 allm-py-4 allm-flex allm-flex-col allm-justify-start allm-no-scroll">
         <div className="allm-flex allm-h-full allm-flex-col allm-items-center allm-justify-center">
-          <p className="allm-text-slate-400 allm-text-sm allm-font-sans allm-py-4 allm-text-center">
+          <p className="allm-text-lex-ink-faint allm-text-sm allm-font-sans allm-py-4 allm-text-center">
             {settings?.greeting ?? "Send a chat to get started."}
           </p>
           <SuggestedMessages settings={settings} />
@@ -105,10 +105,10 @@ export default function ChatHistory({ settings = {}, history = [] }) {
       {!isAtBottom && (
         <div className="allm-fixed allm-bottom-[10rem] allm-right-[50px] allm-z-50 allm-cursor-pointer allm-animate-pulse">
           <div className="allm-flex allm-flex-col allm-items-center">
-            <div className="allm-rounded-full allm-border allm-border-white/10 allm-bg-black/20 hover:allm-bg-black/50 allm-w-8 allm-h-8 allm-flex allm-items-center allm-justify-center">
+            <div className="allm-rounded-full allm-border allm-border-lex-overlay-border allm-bg-lex-overlay hover:allm-bg-lex-overlay-hover allm-w-8 allm-h-8 allm-flex allm-items-center allm-justify-center">
               <ArrowDown
                 weight="bold"
-                className="allm-text-white/50 allm-w-4 allm-h-4"
+                className="allm-text-lex-overlay-ink allm-w-4 allm-h-4"
                 onClick={scrollToBottom}
                 id="scroll-to-bottom-button"
                 aria-label="Scroll to bottom"
@@ -124,11 +124,11 @@ export default function ChatHistory({ settings = {}, history = [] }) {
 export function ChatHistoryLoading() {
   return (
     <div className="allm-h-full allm-w-full allm-relative">
-      <div className="allm-h-full allm-max-h-[82vh] allm-pb-[100px] allm-pt-[5px] allm-bg-gray-100 allm-rounded-lg allm-px-2 allm-h-full allm-mt-2 allm-gap-y-2 allm-overflow-y-scroll allm-flex allm-flex-col allm-justify-start allm-no-scroll">
+      <div className="allm-h-full allm-max-h-[82vh] allm-pb-[100px] allm-pt-[5px] allm-bg-lex-surface-hover allm-rounded-lg allm-px-2 allm-h-full allm-mt-2 allm-gap-y-2 allm-overflow-y-scroll allm-flex allm-flex-col allm-justify-start allm-no-scroll">
         <div className="allm-flex allm-h-full allm-flex-col allm-items-center allm-justify-center">
           <CircleNotch
             size={14}
-            className="allm-text-slate-400 allm-animate-spin"
+            className="allm-text-lex-ink-faint allm-animate-spin"
           />
         </div>
       </div>
@@ -147,7 +147,6 @@ function SuggestedMessages({ settings }) {
           style={{
             opacity: 0,
             wordBreak: "break-word",
-            backgroundColor: embedderSettings.USER_STYLES.msgBg,
             fontSize: settings.textSize,
           }}
           type="button"
@@ -156,7 +155,7 @@ function SuggestedMessages({ settings }) {
               new CustomEvent(SEND_TEXT_EVENT, { detail: { command: content } })
             );
           }}
-          className={`msg-suggestion allm-border-none hover:allm-shadow-[0_4px_14px_rgba(0,0,0,0.5)] allm-cursor-pointer allm-px-2 allm-py-2 allm-rounded-lg allm-text-white allm-w-full allm-shadow-[0_4px_14px_rgba(0,0,0,0.25)]`}
+          className={`msg-suggestion allm-border-none hover:allm-shadow-[0_4px_14px_rgba(0,0,0,0.5)] allm-cursor-pointer allm-px-2 allm-py-2 allm-rounded-lg allm-bg-lex-bubble-user allm-text-lex-bubble-user-ink allm-w-full allm-shadow-[0_4px_14px_rgba(0,0,0,0.25)]`}
         >
           {content}
         </button>

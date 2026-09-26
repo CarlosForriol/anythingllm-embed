@@ -46,8 +46,7 @@ export default function ChatWindowHeader({
 
   return (
     <div
-      style={{ borderBottom: "1px solid #E9E9E9" }}
-      className="allm-flex allm-items-center allm-relative allm-rounded-t-2xl"
+      className="allm-flex allm-items-center allm-relative allm-rounded-t-2xl allm-border-b allm-border-lex-header-line"
       id="anything-llm-header"
     >
       <div className="allm-flex allm-justify-center allm-items-center allm-w-full allm-h-[76px]">
@@ -63,7 +62,7 @@ export default function ChatWindowHeader({
             ref={buttonRef}
             type="button"
             onClick={() => setShowOptions(!showingOptions)}
-            className="allm-bg-transparent hover:allm-cursor-pointer allm-border-none hover:allm-bg-gray-100 allm-rounded-sm allm-text-slate-800/60"
+            className="allm-bg-transparent hover:allm-cursor-pointer allm-border-none hover:allm-bg-lex-surface-hover allm-rounded-sm allm-text-lex-ink-muted"
             aria-label="Options"
           >
             <DotsThreeOutlineVertical size={20} weight="fill" />
@@ -72,7 +71,7 @@ export default function ChatWindowHeader({
         <button
           type="button"
           onClick={closeChat}
-          className="allm-bg-transparent hover:allm-cursor-pointer allm-border-none hover:allm-bg-gray-100 allm-rounded-sm allm-text-slate-800/60"
+          className="allm-bg-transparent hover:allm-cursor-pointer allm-border-none hover:allm-bg-lex-surface-hover allm-rounded-sm allm-text-lex-ink-muted"
           aria-label="Close"
         >
           <X size={20} weight="bold" />
@@ -96,11 +95,11 @@ function OptionsMenu({ settings, showing, resetChat, sessionId, menuRef }) {
   return (
     <div
       ref={menuRef}
-      className="allm-bg-white allm-absolute allm-z-10 allm-flex allm-flex-col allm-gap-y-1 allm-rounded-xl allm-shadow-lg allm-top-[64px] allm-right-[46px]"
+      className="allm-bg-lex-window allm-border allm-border-lex-line allm-absolute allm-z-10 allm-flex allm-flex-col allm-gap-y-1 allm-rounded-xl allm-shadow-lg allm-top-[64px] allm-right-[46px]"
     >
       <button
         onClick={resetChat}
-        className="hover:allm-cursor-pointer allm-bg-white allm-gap-x-[12px] hover:allm-bg-gray-100 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-[#7A7D7E] allm-font-bold allm-px-4"
+        className="hover:allm-cursor-pointer allm-bg-lex-window allm-gap-x-[12px] hover:allm-bg-lex-surface-hover allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-lex-ink-muted allm-font-bold allm-px-4"
       >
         <ArrowCounterClockwise size={24} />
         <p className="allm-text-[14px]">{t("chat.reset-chat")}</p>
@@ -124,7 +123,7 @@ function SessionID({ sessionId }) {
 
   if (sessionIdCopied) {
     return (
-      <div className="hover:allm-cursor-pointer allm-bg-white allm-gap-x-[12px] hover:allm-bg-gray-100 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-[#7A7D7E] allm-font-bold allm-px-4">
+      <div className="hover:allm-cursor-pointer allm-bg-lex-window allm-gap-x-[12px] hover:allm-bg-lex-surface-hover allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-lex-ink-muted allm-font-bold allm-px-4">
         <Check size={24} />
         <p className="allm-text-[14px] allm-font-sans">
           {t("chat.message-copied")}
@@ -136,7 +135,7 @@ function SessionID({ sessionId }) {
   return (
     <button
       onClick={copySessionId}
-      className="hover:allm-cursor-pointer allm-bg-white allm-gap-x-[12px] hover:allm-bg-gray-100 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-[#7A7D7E] allm-font-bold allm-px-4"
+      className="hover:allm-cursor-pointer allm-bg-lex-window allm-gap-x-[12px] hover:allm-bg-lex-surface-hover allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-lex-ink-muted allm-font-bold allm-px-4"
     >
       <Copy size={24} />
       <p className="allm-text-[14px]">{t("chat.session-id")}</p>
@@ -151,7 +150,7 @@ function ContactSupport({ email = null }) {
   return (
     <a
       href={`mailto:${email}?Subject=${encodeURIComponent(subject)}`}
-      className="allm-no-underline hover:allm-underline hover:allm-cursor-pointer allm-bg-white allm-gap-x-[12px] hover:allm-bg-gray-100 allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-[#7A7D7E] allm-font-bold allm-px-4"
+      className="allm-no-underline hover:allm-underline hover:allm-cursor-pointer allm-bg-lex-window allm-gap-x-[12px] hover:allm-bg-lex-surface-hover allm-rounded-lg allm-border-none allm-flex allm-items-center allm-text-base allm-text-lex-ink-muted allm-font-bold allm-px-4"
     >
       <Envelope size={24} />
       <p className="allm-text-[14px] allm-font-sans">

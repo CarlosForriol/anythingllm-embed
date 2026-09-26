@@ -7,6 +7,7 @@ import ChatWindow from "./components/ChatWindow";
 import { useEffect } from "react";
 import { I18nextProvider } from "react-i18next";
 import i18next from "@/i18n";
+import { themeTokenOverrides } from "@/utils/theme";
 
 export default function App() {
   const { isChatOpen, toggleOpenChat } = useOpenChat();
@@ -31,44 +32,54 @@ export default function App() {
   const position = embedSettings.position || "bottom-right";
   const windowWidth = embedSettings.windowWidth ?? "400px";
   const windowHeight = embedSettings.windowHeight ?? "700px";
+  const theme = embedSettings.theme === "dark" ? "dark" : "light";
 
   return (
     <I18nextProvider i18n={i18next}>
       <Head />
+      {/* Single themed wrapper: `data-theme` picks the token palette
+          (src/theme.css) and the client's widget_config colors override
+          individual tokens (src/utils/theme.js). Issue #26. */}
       <div
-        id="anything-llm-embed-chat-container"
-        className={`allm-fixed allm-inset-0 allm-z-50 ${isChatOpen ? "allm-block" : "allm-hidden"}`}
+        data-theme={theme}
+        style={themeTokenOverrides(embedSettings)}
+        id="lexppia-embed-root"
       >
         <div
-          style={{
-            maxWidth: windowWidth,
-            maxHeight: windowHeight,
-            height: "100%",
-          }}
-          className={`allm-h-full allm-w-full allm-bg-white allm-fixed allm-bottom-0 allm-right-0 allm-mb-4 allm-md:mr-4 allm-rounded-2xl allm-border allm-border-gray-300 allm-shadow-[0_4px_14px_rgba(0,0,0,0.25)] allm-flex allm-flex-col ${positionClasses[position]}`}
-          id="anything-llm-chat"
+          id="anything-llm-embed-chat-container"
+          className={`allm-fixed allm-inset-0 allm-z-50 ${isChatOpen ? "allm-block" : "allm-hidden"}`}
         >
-          {isChatOpen && (
-            <ChatWindow
-              closeChat={() => toggleOpenChat(false)}
+          <div
+            style={{
+              maxWidth: windowWidth,
+              maxHeight: windowHeight,
+              height: "100%",
+            }}
+            className={`allm-h-full allm-w-full allm-bg-lex-window allm-fixed allm-bottom-0 allm-right-0 allm-mb-4 allm-md:mr-4 allm-rounded-2xl allm-border allm-border-lex-window-border allm-shadow-[0_4px_14px_rgba(0,0,0,0.25)] allm-flex allm-flex-col ${positionClasses[position]}`}
+            id="anything-llm-chat"
+          >
+            {isChatOpen && (
+              <ChatWindow
+                closeChat={() => toggleOpenChat(false)}
+                settings={embedSettings}
+                sessionId={sessionId}
+              />
+            )}
+          </div>
+        </div>
+        {!isChatOpen && (
+          <div
+            id="anything-llm-embed-chat-button-container"
+            className={`allm-fixed allm-bottom-0 ${positionClasses[position]} allm-mb-4 allm-z-50`}
+          >
+            <OpenButton
               settings={embedSettings}
-              sessionId={sessionId}
+              isOpen={isChatOpen}
+              toggleOpen={() => toggleOpenChat(true)}
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
-      {!isChatOpen && (
-        <div
-          id="anything-llm-embed-chat-button-container"
-          className={`allm-fixed allm-bottom-0 ${positionClasses[position]} allm-mb-4 allm-z-50`}
-        >
-          <OpenButton
-            settings={embedSettings}
-            isOpen={isChatOpen}
-            toggleOpen={() => toggleOpenChat(true)}
-          />
-        </div>
-      )}
     </I18nextProvider>
   );
 }

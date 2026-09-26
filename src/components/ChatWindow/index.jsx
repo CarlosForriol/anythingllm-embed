@@ -79,13 +79,13 @@ function copyCodeSnippet(uuid) {
 
   window.navigator.clipboard.writeText(markdown);
 
-  target.classList.add("allm-text-green-500");
+  target.classList.add("allm-text-lex-success");
   const originalText = target.innerHTML;
   target.innerText = "Copied!";
   target.setAttribute("disabled", true);
 
   setTimeout(() => {
-    target.classList.remove("allm-text-green-500");
+    target.classList.remove("allm-text-lex-success");
     target.innerHTML = originalText;
     target.removeAttribute("disabled");
   }, 2500);
