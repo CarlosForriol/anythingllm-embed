@@ -23,6 +23,7 @@ const DEFAULT_SETTINGS = {
   textColor: null, // hex override of --lex-ink
   accentColor: null, // hex override of --lex-accent
   borderColor: null, // hex override of --lex-window-border
+  headerColor: null, // hex override of --lex-header-bg (issue #62)
   noSponsor: null, // Shows sponsor in footer of chat
   sponsorText: "Impulsado por Lexppia", // default sponsor text
   sponsorLink: "https://leppi.es", // default sponsor link

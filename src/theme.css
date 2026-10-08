@@ -10,57 +10,69 @@
 
 :root,
 [data-theme="light"] {
-  /* surfaces */
+  /* surfaces — Revolut direction (lexppia-anythingllm #62): a cool grey
+     chat body under borderless white cards, no hairlines */
   --lex-window: #ffffff;
-  --lex-surface-hover: #f3f4f6;
-  --lex-header-line: #e9e9e9;
-  --lex-line: #e5e7eb;
-  --lex-window-border: #d1d5db;
+  --lex-body: #f4f4f6;
+  --lex-surface-hover: #eeeff2;
+  --lex-header-line: transparent;
+  --lex-line: #e3e5e8;
+  --lex-window-border: transparent;
+
+  /* header: ink bar with white text (configurable, #62) */
+  --lex-header-bg: #191c1f;
+  --lex-header-ink: #ffffff;
 
   /* text */
-  --lex-ink: #14151a;
-  --lex-ink-muted: #7a7d7e;
-  --lex-ink-faint: #9ca3af;
+  --lex-ink: #191c1f;
+  --lex-ink-muted: #505a63;
+  --lex-ink-faint: #6b737d;
 
   /* brand + links */
-  --lex-accent: #0119d9;
+  --lex-accent: #2b45d6;
 
   /* bubbles */
   --lex-bubble-user-bg: #2b45d6;
   --lex-bubble-user-ink: #ffffff;
-  --lex-bubble-assistant-bg: #f4f3ef;
-  --lex-bubble-assistant-ink: #14151a;
+  --lex-bubble-assistant-bg: #ffffff;
+  --lex-bubble-assistant-ink: #191c1f;
 
   /* open button */
   --lex-button-bg: #2b45d6;
   --lex-button-ink: #ffffff;
 
-  /* prompt input */
-  --lex-input-border: rgba(34, 38, 40, 0.2);
-  --lex-input-ink: #14151a;
+  /* prompt input: filled pill, no border */
+  --lex-input-bg: #f4f4f6;
+  --lex-input-border: transparent;
+  --lex-input-ink: #191c1f;
 
   /* errors */
-  --lex-danger-bg: #fecaca;
+  --lex-danger-bg: #fce8e8;
   --lex-danger-soft-bg: #fef2f2;
-  --lex-danger-ink: #ef4444;
+  --lex-danger-ink: #c42b2b;
 
   /* floating controls (scroll-to-bottom) */
-  --lex-overlay-bg: rgba(0, 0, 0, 0.2);
-  --lex-overlay-bg-hover: rgba(0, 0, 0, 0.5);
+  --lex-overlay-bg: rgba(25, 28, 31, 0.2);
+  --lex-overlay-bg-hover: rgba(25, 28, 31, 0.5);
   --lex-overlay-border: rgba(255, 255, 255, 0.1);
-  --lex-overlay-ink: rgba(255, 255, 255, 0.5);
+  --lex-overlay-ink: rgba(255, 255, 255, 0.7);
 
   /* copy-code feedback */
-  --lex-success: #22c55e;
+  --lex-success: #0e7a43;
 }
 
 [data-theme="dark"] {
   /* surfaces */
   --lex-window: #25272c;
+  --lex-body: #1d1f23;
   --lex-surface-hover: #31353a;
   --lex-header-line: #3d4147;
   --lex-line: #3d4147;
   --lex-window-border: #4e5153;
+
+  /* header */
+  --lex-header-bg: #000000;
+  --lex-header-ink: #efefef;
 
   /* text */
   --lex-ink: #efefef;
@@ -81,6 +93,7 @@
   --lex-button-ink: #ffffff;
 
   /* prompt input */
+  --lex-input-bg: #31353a;
   --lex-input-border: rgba(255, 255, 255, 0.2);
   --lex-input-ink: #efefef;
 

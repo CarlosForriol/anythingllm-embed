@@ -44,14 +44,14 @@ export default function ChatWindow({ closeChat, settings, sessionId }) {
           setChatHistory={setChatHistory}
         />
       )}
-      <div className="allm-flex-grow allm-overflow-y-auto">
+      <div className="allm-flex-grow allm-overflow-y-auto allm-bg-lex-body">
         <ChatContainer
           sessionId={sessionId}
           settings={settings}
           knownHistory={chatHistory}
         />
       </div>
-      <div className="allm-mt-4 allm-pb-4 allm-h-fit allm-gap-y-2 allm-z-10">
+      <div className="allm-pt-1 allm-pb-3 allm-h-fit allm-flex allm-flex-col allm-gap-y-1 allm-z-10 allm-bg-lex-window">
         <Sponsor settings={settings} />
         <ResetChat
           setChatHistory={setChatHistory}

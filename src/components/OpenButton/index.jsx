@@ -25,7 +25,7 @@ export default function OpenButton({ settings, isOpen, toggleOpen }) {
     <button
       id="anything-llm-embed-chat-button"
       onClick={toggleOpen}
-      className={`allm-bg-lex-button hover:allm-cursor-pointer allm-border-none allm-flex allm-items-center allm-justify-center allm-p-4 allm-rounded-full allm-text-lex-button-ink allm-text-2xl hover:allm-opacity-95`}
+      className={`allm-bg-lex-button hover:allm-cursor-pointer allm-border-none allm-flex allm-items-center allm-justify-center allm-w-16 allm-h-16 allm-rounded-full allm-text-lex-button-ink allm-text-[26px] allm-shadow-[0_12px_32px_-8px_rgba(25,28,31,0.45)] hover:allm-opacity-95`}
       aria-label="Toggle Menu"
     >
       <ChatIcon className="allm-text-lex-button-ink" />

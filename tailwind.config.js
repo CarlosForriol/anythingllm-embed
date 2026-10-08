@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'false',
-  prefix: 'allm-',
+  darkMode: "false",
+  prefix: "allm-",
   corePlugins: {
-    preflight: false,
+    preflight: false
   },
   content: {
     relative: true,
@@ -14,7 +14,7 @@ export default {
       "./src/pages/**/*.{js,jsx}",
       "./src/utils/**/*.js",
       "./src/*.jsx",
-      "./index.html",
+      "./index.html"
     ]
   },
   theme: {
@@ -29,6 +29,10 @@ export default {
         // and overridable per client at runtime. Components must use these
         // semantic classes instead of hardcoded hex colors.
         "lex-window": "var(--lex-window)",
+        "lex-body": "var(--lex-body)",
+        "lex-header": "var(--lex-header-bg)",
+        "lex-header-ink": "var(--lex-header-ink)",
+        "lex-input": "var(--lex-input-bg)",
         "lex-surface-hover": "var(--lex-surface-hover)",
         "lex-header-line": "var(--lex-header-line)",
         "lex-line": "var(--lex-line)",
