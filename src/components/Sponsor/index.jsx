@@ -7,7 +7,7 @@ export default function Sponsor({ settings }) {
         href={settings.sponsorLink ?? "#"}
         target="_blank"
         rel="noreferrer"
-        className="allm-text-lex-accent allm-text-xs allm-font-sans hover:allm-opacity-80 hover:allm-underline"
+        className="allm-text-lex-ink-faint allm-text-[11.5px] allm-font-medium allm-font-sans allm-no-underline hover:allm-text-lex-ink-muted"
       >
         {settings.sponsorText}
       </a>

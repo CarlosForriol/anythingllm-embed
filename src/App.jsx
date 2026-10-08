@@ -31,7 +31,7 @@ export default function App() {
 
   const position = embedSettings.position || "bottom-right";
   const windowWidth = embedSettings.windowWidth ?? "400px";
-  const windowHeight = embedSettings.windowHeight ?? "700px";
+  const windowHeight = embedSettings.windowHeight ?? "640px";
   const theme = embedSettings.theme === "dark" ? "dark" : "light";
 
   return (
@@ -55,7 +55,7 @@ export default function App() {
               maxHeight: windowHeight,
               height: "100%",
             }}
-            className={`allm-h-full allm-w-full allm-bg-lex-window allm-fixed allm-bottom-0 allm-right-0 allm-mb-4 allm-md:mr-4 allm-rounded-2xl allm-border allm-border-lex-window-border allm-shadow-[0_4px_14px_rgba(0,0,0,0.25)] allm-flex allm-flex-col ${positionClasses[position]}`}
+            className={`allm-h-full allm-w-full allm-bg-lex-window allm-fixed allm-bottom-0 allm-right-0 allm-mb-4 allm-md:mr-4 allm-rounded-[28px] allm-overflow-hidden allm-border allm-border-lex-window-border allm-shadow-[0_24px_64px_-16px_rgba(25,28,31,0.35)] allm-flex allm-flex-col ${positionClasses[position]}`}
             id="anything-llm-chat"
           >
             {isChatOpen && (

@@ -20,10 +20,10 @@ export const embedderSettings = {
   // Tailwind. Client `data-*` colors are mapped onto the same variables in
   // App.jsx, so no hex lives in these style strings anymore.
   USER_STYLES: {
-    base: `allm-bg-lex-bubble-user allm-text-lex-bubble-user-ink allm-rounded-t-[18px] allm-rounded-bl-[18px] allm-rounded-br-[4px] allm-mx-[20px]`,
+    base: `allm-bg-lex-bubble-user allm-text-lex-bubble-user-ink allm-rounded-[20px] allm-rounded-br-[6px] allm-ml-[48px] allm-mr-[12px]`,
   },
   ASSISTANT_STYLES: {
-    base: `allm-bg-lex-bubble-assistant allm-text-lex-bubble-assistant-ink allm-rounded-t-[18px] allm-rounded-br-[18px] allm-rounded-bl-[4px] allm-mr-[37px] allm-ml-[9px]`,
+    base: `allm-bg-lex-bubble-assistant allm-text-lex-bubble-assistant-ink allm-rounded-[20px] allm-rounded-tl-[6px] allm-ml-[12px] allm-mr-[48px]`,
   },
 };
 

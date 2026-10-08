@@ -51,7 +51,7 @@ export default function ChatHistory({ settings = {}, history = [] }) {
       <div className="allm-h-full allm-overflow-y-auto allm-px-2 allm-py-4 allm-flex allm-flex-col allm-justify-start allm-no-scroll">
         <div className="allm-flex allm-h-full allm-flex-col allm-items-center allm-justify-center">
           <p className="allm-text-lex-ink-faint allm-text-sm allm-font-sans allm-py-4 allm-text-center">
-            {settings?.greeting ?? "Send a chat to get started."}
+            {settings?.greeting ?? "¡Hola! ¿En qué puedo ayudarte?"}
           </p>
           <SuggestedMessages settings={settings} />
         </div>
@@ -124,7 +124,7 @@ export default function ChatHistory({ settings = {}, history = [] }) {
 export function ChatHistoryLoading() {
   return (
     <div className="allm-h-full allm-w-full allm-relative">
-      <div className="allm-h-full allm-max-h-[82vh] allm-pb-[100px] allm-pt-[5px] allm-bg-lex-surface-hover allm-rounded-lg allm-px-2 allm-h-full allm-mt-2 allm-gap-y-2 allm-overflow-y-scroll allm-flex allm-flex-col allm-justify-start allm-no-scroll">
+      <div className="allm-h-full allm-max-h-[82vh] allm-pb-[100px] allm-pt-[5px] allm-bg-transparent allm-rounded-lg allm-px-2 allm-h-full allm-mt-2 allm-gap-y-2 allm-overflow-y-scroll allm-flex allm-flex-col allm-justify-start allm-no-scroll">
         <div className="allm-flex allm-h-full allm-flex-col allm-items-center allm-justify-center">
           <CircleNotch
             size={14}
@@ -140,7 +140,7 @@ function SuggestedMessages({ settings }) {
   if (!settings?.defaultMessages?.length) return null;
 
   return (
-    <div className="allm-flex allm-flex-col allm-gap-y-2 allm-w-[75%]">
+    <div className="allm-flex allm-flex-wrap allm-gap-2 allm-px-3">
       {settings.defaultMessages.map((content, i) => (
         <button
           key={i}
@@ -155,7 +155,7 @@ function SuggestedMessages({ settings }) {
               new CustomEvent(SEND_TEXT_EVENT, { detail: { command: content } })
             );
           }}
-          className={`msg-suggestion allm-border-none hover:allm-shadow-[0_4px_14px_rgba(0,0,0,0.5)] allm-cursor-pointer allm-px-2 allm-py-2 allm-rounded-lg allm-bg-lex-bubble-user allm-text-lex-bubble-user-ink allm-w-full allm-shadow-[0_4px_14px_rgba(0,0,0,0.25)]`}
+          className={`msg-suggestion allm-border-none allm-cursor-pointer allm-font-sans allm-px-[14px] allm-py-2 allm-rounded-full allm-bg-lex-window allm-text-lex-ink allm-text-[13px] allm-font-semibold allm-text-left allm-shadow-[inset_0_0_0_1px_var(--lex-line)] hover:allm-bg-lex-surface-hover`}
         >
           {content}
         </button>

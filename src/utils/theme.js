@@ -13,6 +13,7 @@ const TOKEN_VARS = {
   textColor: "--lex-ink",
   accentColor: "--lex-accent",
   borderColor: "--lex-window-border",
+  headerColor: "--lex-header-bg",
 };
 
 const HEX_COLOR = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;

@@ -4,7 +4,6 @@ import renderMarkdown from "@/utils/chat/markdown";
 import DOMPurify from "@/utils/chat/purify";
 import { embedderSettings } from "@/main";
 import { v4 } from "uuid";
-import AnythingLLMIcon from "@/assets/anything-llm-icon.svg";
 import { formatDate } from "@/utils/date";
 
 const ThoughtBubble = ({ thought }) => {
@@ -66,11 +65,6 @@ const HistoricalMessage = forwardRef(
 
     return (
       <div className="allm-py-[5px]">
-        {role === "assistant" && (
-          <div className="allm-text-[10px] allm-text-lex-ink-faint allm-ml-[54px] allm-mr-6 allm-mb-2 allm-text-left allm-font-sans">
-            {embedderSettings.settings.assistantName || "Asistente Lexppia"}
-          </div>
-        )}
         <div
           key={uuid}
           ref={ref}
@@ -78,23 +72,15 @@ const HistoricalMessage = forwardRef(
             role === "user" ? "allm-justify-end" : "allm-justify-start"
           }`}
         >
-          {role === "assistant" && (
-            <img
-              src={embedderSettings.settings.assistantIcon || AnythingLLMIcon}
-              alt="Lexppia Logo"
-              className="allm-w-9 allm-h-9 allm-flex-shrink-0 allm-ml-2"
-              id="anything-llm-icon"
-            />
-          )}
           <div
             style={{ wordBreak: "break-word" }}
             className={`allm-py-[11px] allm-px-4 allm-flex allm-flex-col allm-font-sans ${
               error
-                ? "allm-bg-lex-danger allm-rounded-lg allm-mr-[37px] allm-ml-[9px]"
+                ? "allm-bg-lex-danger allm-rounded-[20px] allm-rounded-tl-[6px] allm-mr-[48px] allm-ml-[12px]"
                 : role === "user"
                   ? `${embedderSettings.USER_STYLES.base} allm-anything-llm-user-message`
                   : `${embedderSettings.ASSISTANT_STYLES.base} allm-anything-llm-assistant-message`
-            } allm-shadow-[0_4px_14px_rgba(0,0,0,0.25)]`}
+            }`}
           >
             <div className="allm-flex allm-flex-col">
               {error ? (
@@ -128,7 +114,7 @@ const HistoricalMessage = forwardRef(
 
         {sentAt && (
           <div
-            className={`allm-font-sans allm-text-[10px] allm-text-lex-ink-faint allm-ml-[54px] allm-mr-6 allm-mt-2 ${role === "user" ? "allm-text-right" : "allm-text-left"}`}
+            className={`allm-font-sans allm-text-[10px] allm-text-lex-ink-faint allm-mx-[16px] allm-mt-1 ${role === "user" ? "allm-text-right" : "allm-text-left"}`}
           >
             {formatDate(sentAt)}
           </div>
