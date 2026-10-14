@@ -5,6 +5,8 @@ import DOMPurify from "@/utils/chat/purify";
 import { embedderSettings } from "@/main";
 import { v4 } from "uuid";
 import { formatDate } from "@/utils/date";
+import { splitLeadMarker } from "@/utils/leadForm";
+import LeadForm from "../LeadForm";
 
 const ThoughtBubble = ({ thought }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -59,9 +61,10 @@ const HistoricalMessage = forwardRef(
     );
 
     // Get the response content without the think tags
-    const responseContent = message
-      ?.replace(/<think>[\s\S]*?<\/think>/g, "")
-      .trim();
+    const { text: responseContent, hasForm } = splitLeadMarker(
+      message?.replace(/<think>[\s\S]*?<\/think>/g, "").trim() || ""
+    );
+    const showLeadForm = role === "assistant" && !error && hasForm;
 
     return (
       <div className="allm-py-[5px]">
@@ -102,7 +105,7 @@ const HistoricalMessage = forwardRef(
                     className={`allm-whitespace-pre-line allm-flex allm-flex-col allm-gap-y-1 ${textSize} allm-leading-[20px]`}
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(
-                        renderMarkdown(responseContent || message)
+                        renderMarkdown(responseContent)
                       ),
                     }}
                   />
@@ -111,6 +114,8 @@ const HistoricalMessage = forwardRef(
             </div>
           </div>
         </div>
+
+        {showLeadForm && <LeadForm />}
 
         {sentAt && (
           <div

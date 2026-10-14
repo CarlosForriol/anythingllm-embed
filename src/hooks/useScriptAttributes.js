@@ -41,6 +41,7 @@ const DEFAULT_SETTINGS = {
   // behaviors
   openOnLoad: "off", // or "on"
   supportEmail: null, // string of email for contact
+  privacyUrl: null, // privacy policy linked from the lead form consent (#67)
   username: null, // The display or readable name set on a script
   defaultMessages: [], // list of strings for default messages.
 };
