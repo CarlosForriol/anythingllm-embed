@@ -1,5 +1,6 @@
 import HistoricalMessage from "./HistoricalMessage";
 import PromptReply from "./PromptReply";
+import { splitLeadMarker } from "@/utils/leadForm";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, CircleNotch } from "@phosphor-icons/react";
 import { embedderSettings } from "@/main";
@@ -59,6 +60,13 @@ export default function ChatHistory({ settings = {}, history = [] }) {
     );
   }
 
+  // #67: if the assistant repeats the marker, only the latest reply carrying
+  // it renders the form.
+  const leadFormIndex = history.findLastIndex(
+    (message) =>
+      message.role === "assistant" && splitLeadMarker(message.content).hasForm
+  );
+
   return (
     <div
       className="allm-h-full allm-overflow-y-auto allm-px-2 allm-pt-4 allm-pb-8 allm-flex allm-flex-col allm-justify-start allm-no-scroll"
@@ -98,6 +106,7 @@ export default function ChatHistory({ settings = {}, history = [] }) {
               feedbackScore={props.feedbackScore}
               error={props.error}
               errorMsg={props.errorMsg}
+              allowLeadForm={index === leadFormIndex}
             />
           );
         })}

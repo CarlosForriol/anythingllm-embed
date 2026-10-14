@@ -1,6 +1,7 @@
 import { forwardRef, memo, useState } from "react";
 import { Warning, CircleNotch, CaretDown } from "@phosphor-icons/react";
 import renderMarkdown from "@/utils/chat/markdown";
+import { splitLeadMarker } from "@/utils/leadForm";
 import { embedderSettings } from "@/main";
 import { formatDate } from "@/utils/date";
 
@@ -78,6 +79,8 @@ const PromptReply = forwardRef(
       .replace(/<think>.*$/g, "") // Remove any incomplete think blocks at the end
       .replace(/<\/?think>/g, "") // Remove any stray think tags
       .trim();
+    // The lead-form marker (#67) is rendered as a form once the reply is final.
+    const visibleContent = splitLeadMarker(responseContent || "").text;
 
     if (isThinking) {
       return (
@@ -137,7 +140,7 @@ const PromptReply = forwardRef(
               <span
                 className="allm-font-sans allm-reply allm-whitespace-pre-line allm-font-normal allm-text-sm allm-md:text-sm allm-flex allm-flex-col allm-gap-y-1"
                 dangerouslySetInnerHTML={{
-                  __html: renderMarkdown(responseContent || ""),
+                  __html: renderMarkdown(visibleContent),
                 }}
               />
             </div>

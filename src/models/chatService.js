@@ -31,6 +31,17 @@ const ChatService = {
       .then((res) => res.ok)
       .catch(() => false);
   },
+  submitLead: async function (embedSettings, sessionId, lead) {
+    const { baseApiUrl, embedId } = embedSettings;
+    const res = await fetch(`${baseApiUrl}/${embedId}/lead`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sessionId, ...lead }),
+    });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(body.error || "No se pudo enviar.");
+    return body;
+  },
   streamChat: async function (sessionId, embedSettings, message, handleChat) {
     const { baseApiUrl, embedId, username } = embedSettings;
     const overrides = {

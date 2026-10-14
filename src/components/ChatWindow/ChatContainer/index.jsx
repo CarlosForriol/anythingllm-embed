@@ -3,6 +3,7 @@ import ChatHistory from "./ChatHistory";
 import PromptInput from "./PromptInput";
 import handleChat from "@/utils/chat";
 import ChatService from "@/models/chatService";
+import { LEAD_SUBMITTED_EVENT } from "@/utils/leadForm";
 export const SEND_TEXT_EVENT = "anythingllm-embed-send-prompt";
 
 export default function ChatContainer({
@@ -121,6 +122,26 @@ export default function ChatContainer({
     if (!event.detail.command) return;
     sendCommand(event.detail.command, [], []);
   };
+
+  // The lead form (#67) continues the conversation with what was sent and the
+  // confirmation the server stored for it.
+  const handleLeadSubmitted = (event) => {
+    const { summary, reply } = event.detail || {};
+    if (!summary || !reply) return;
+    const sentAt = Math.floor(Date.now() / 1000);
+    setChatHistory((prev) => [
+      ...prev,
+      { content: summary, role: "user", sentAt },
+      { content: reply, role: "assistant", sentAt },
+    ]);
+  };
+
+  useEffect(() => {
+    window.addEventListener(LEAD_SUBMITTED_EVENT, handleLeadSubmitted);
+    return () => {
+      window.removeEventListener(LEAD_SUBMITTED_EVENT, handleLeadSubmitted);
+    };
+  }, []);
 
   useEffect(() => {
     window.addEventListener(SEND_TEXT_EVENT, handleAutofillEvent);
