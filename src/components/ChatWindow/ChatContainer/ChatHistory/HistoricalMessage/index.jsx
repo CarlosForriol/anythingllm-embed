@@ -46,6 +46,7 @@ const HistoricalMessage = forwardRef(
       error = false,
       errorMsg = null,
       sentAt,
+      allowLeadForm = true,
     },
     ref
   ) => {
@@ -64,7 +65,8 @@ const HistoricalMessage = forwardRef(
     const { text: responseContent, hasForm } = splitLeadMarker(
       message?.replace(/<think>[\s\S]*?<\/think>/g, "").trim() || ""
     );
-    const showLeadForm = role === "assistant" && !error && hasForm;
+    const showLeadForm =
+      role === "assistant" && !error && hasForm && allowLeadForm;
 
     return (
       <div className="allm-py-[5px]">
